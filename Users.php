@@ -37,7 +37,7 @@ if(!$conn){
         <th>TASK</th>
     </tr>
     <?php
-    $sql = "SELECT * FROM todolist";
+    $sql = "SELECT id,task FROM todolist";
     $result = mysqli_query($conn,$sql);
     while($row = $result->fetch_assoc()){
     ?>
@@ -47,6 +47,9 @@ if(!$conn){
     </tr>
     <?php
     }
+
+    mysqli_free_result($result);
+    mysqli_close($conn);
     ?>
 
 
